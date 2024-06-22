@@ -1,3 +1,4 @@
+/* This C++ class defines a method to find the middle node of a linked list. */
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
