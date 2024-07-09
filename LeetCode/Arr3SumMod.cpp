@@ -3,7 +3,6 @@ class Solution
 public:
     int threeSumClosest(vector<int> arr, int target)
     {
-        // Your code goes here
         int ans = 1e7;
         int n = arr.size();
         sort(arr.begin(), arr.end());
