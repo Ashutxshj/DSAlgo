@@ -3,7 +3,6 @@ class Solution
 public:
     void segregate0and1(vector<int> &arr)
     {
-        // code here
         int n = arr.size();
         int low = 0, high = n - 1;
         while (low < high)
