@@ -39,7 +39,6 @@ public:
 public:
     void mergeSort(int arr[], int l, int r)
     {
-        // code here
         if (l == r)
             return;
         int mid = (l + r) / 2;
