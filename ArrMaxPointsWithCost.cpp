@@ -1,48 +1,36 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
-
-using namespace std;
-
 class Solution {
 public:
-    int maxPoints(const vector<vector<int>> &points) {
-        int m = points.size();
-        if (m == 0) return 0;
-        int n = points[0].size();
-        if (n == 0) return 0;
-
-        vector<vector<int>> dp(m, vector<int>(n, 0));
-
-        for (int j = 0; j < n; ++j) {
-            dp[0][j] = points[0][j];
+    long long maxPoints(vector<vector<int>>& points) {
+        vector<vector<long long>> dp(points.size(), vector<long long>(points[0].size(), -1));
+        
+        for (int i = 0; i < points[0].size(); ++i) {
+            dp[0][i] = points[0][i];
         }
-
-        for (int i = 1; i < m; ++i) {
-            vector<int> max_prev_row(n, INT_MIN);
+        
+        for (int i = 1; i < points.size(); ++i) {
+            vector<long long> left_dp(points[i].size(), -1);
+            vector<long long> right_dp(points[i].size(), -1);
             
-            for (int j = 0; j < n; ++j) {
-                for (int k = 0; k < n; ++k) {
-                    max_prev_row[j] = max(max_prev_row[j], dp[i-1][k] - abs(k - j));
-                }
+            left_dp[0] = dp[i - 1][0];
+            for (int k = 1; k < points[i].size(); ++k) {
+                left_dp[k] = max(left_dp[k - 1], dp[i - 1][k] + k);
             }
             
-            for (int j = 0; j < n; ++j) {
-                dp[i][j] = points[i][j] + max_prev_row[j];
+            right_dp.back() = dp[i - 1].back() - points[i].size() + 1;
+            for (int k = points[i].size() - 2; k >= 0; --k) {
+                right_dp[k] = max(right_dp[k + 1], dp[i - 1][k] - k);
+            }
+            
+            for (int j = 0; j < points[i].size(); ++j) {
+                dp[i][j] = max(left_dp[j] - j, right_dp[j] + j) + points[i][j];
             }
         }
-
-        int result = INT_MIN;
-        for (int j = 0; j < n; ++j) {
-            result = max(result, dp[m-1][j]);
+        
+        long long max_ans = -1;
+        for (const auto v : dp.back()) {
+            max_ans = max(max_ans, v);
         }
-
-        return result;
+        
+        return max_ans;
     }
 };
-
-int main() {
-    Solution sol;
-    cout << sol.maxPoints({{0, 3, 0, 4, 2}, {5, 4, 2, 4, 1}, {5, 0, 0, 5, 1}, {2, 0, 1, 0, 3}}) << endl;
-}
