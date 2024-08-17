@@ -9,33 +9,35 @@ class Solution {
 public:
     int maxPoints(const vector<vector<int>> &points) {
         int m = points.size();
+        if (m == 0) return 0;
         int n = points[0].size();
-        
-        // dp table to store maximum points at each cell
+        if (n == 0) return 0;
+
         vector<vector<int>> dp(m, vector<int>(n, 0));
-        
-        // Initialize the first row of dp table
+
         for (int j = 0; j < n; ++j) {
             dp[0][j] = points[0][j];
         }
-        
-        // Fill the dp table
+
         for (int i = 1; i < m; ++i) {
+            vector<int> max_prev_row(n, INT_MIN);
+            
             for (int j = 0; j < n; ++j) {
-                int maxPrev = INT_MIN;
                 for (int k = 0; k < n; ++k) {
-                    maxPrev = max(maxPrev, dp[i-1][k] - abs(k - j));
+                    max_prev_row[j] = max(max_prev_row[j], dp[i-1][k] - abs(k - j));
                 }
-                dp[i][j] = points[i][j] + maxPrev;
+            }
+            
+            for (int j = 0; j < n; ++j) {
+                dp[i][j] = points[i][j] + max_prev_row[j];
             }
         }
-        
-        // Get the maximum value from the last row of dp table
+
         int result = INT_MIN;
         for (int j = 0; j < n; ++j) {
             result = max(result, dp[m-1][j]);
         }
-        
+
         return result;
     }
 };
