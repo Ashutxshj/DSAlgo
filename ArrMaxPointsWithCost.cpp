@@ -1,53 +1,46 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <algorithm>
+#include <climits>
+
 using namespace std;
-class Solution
-{
+
+class Solution {
 public:
-    long long maxNo(const vector<int> &arr)
-    {
-        if (arr.empty())
-            return -1;
-        int i = 0;
-        while (i < arr.size() - 1)
-        {
-            if (arr[i] <= arr[i + 1])
-                i++;
-            else
-                break;
+    int maxPoints(const vector<vector<int>> &points) {
+        int m = points.size();
+        int n = points[0].size();
+        
+        // dp table to store maximum points at each cell
+        vector<vector<int>> dp(m, vector<int>(n, 0));
+        
+        // Initialize the first row of dp table
+        for (int j = 0; j < n; ++j) {
+            dp[0][j] = points[0][j];
         }
-        return arr[i];
-    }
-    int maxPoints(const vector<vector<int>> &points)
-    {
-        int score_add = 0, score_sub = 0;
-        vector<int> ans;
-        for (int i = 0; i < points.size(); i++)
-        {
-            bool maxPicked=false;
-            for (int j = 0; j < points[i].size(); j++)
-            {
-                if (!maxPicked && points[i][j] == maxNo(points[i]))
-                {
-                    score_add += points[i][j];
-                    ans.push_back(j);
-                    maxPicked=true;
+        
+        // Fill the dp table
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int maxPrev = INT_MIN;
+                for (int k = 0; k < n; ++k) {
+                    maxPrev = max(maxPrev, dp[i-1][k] - abs(k - j));
                 }
+                dp[i][j] = points[i][j] + maxPrev;
             }
         }
-        for (int k = 0; k < ans.size() - 1; k++)
-        {
-            score_sub += abs(ans[k] - ans[k + 1]);
+        
+        // Get the maximum value from the last row of dp table
+        int result = INT_MIN;
+        for (int j = 0; j < n; ++j) {
+            result = max(result, dp[m-1][j]);
         }
-        return score_add-score_sub;
-    } // [[0,3,0,4,2], ==> 4 (0,3)         ===>[3,0,0,4]  [3,0,3,4]
-    //    [5,4,2,4,1], ==> 5 (1,0)             3-0+0-0+0-4=>1
-    //    [5,0,0,5,1], ==> 5 (2,0),(2,3)       3-0+0-3+3-4=>1
-    //    [2,0,1,0,3]] ==> 3 (3,4)
+        
+        return result;
+    }
 };
-int main()
-{
+
+int main() {
     Solution sol;
-    cout << sol.maxPoints({{0,3,0,4,2},{5,4,2,4,1},{5,0,0,5,1},{2,0,1,0,3}}) << endl;
+    cout << sol.maxPoints({{0, 3, 0, 4, 2}, {5, 4, 2, 4, 1}, {5, 0, 0, 5, 1}, {2, 0, 1, 0, 3}}) << endl;
 }
