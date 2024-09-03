@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+class Solution
+{
+public:
+    bool containsDuplicate(vector<int> &nums)
+    {
+        bool ans = false;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            for (int j = i+1; j < nums.size(); j++)
+            {
+                if (nums[i] == nums[j])
+                {
+                    ans = true;
+                }
+            }
+        }
+        return ans;
+    }
+};
+int main(){
+    Solution sol=Solution();
+    vector<int> ans={1,2,3,4};
+    cout<<sol.containsDuplicate(ans);
+}
