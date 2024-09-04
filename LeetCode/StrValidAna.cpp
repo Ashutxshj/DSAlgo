@@ -6,20 +6,27 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 
 #include <iostream>
 #include<algorithm>
+#include<unordered_map>
 using namespace std;
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        bool ans=false;
-        if(s.length()!=t.length()){
-            return false;
+        unordered_map<char,int> mp;
+        //Char appears in s, increase count
+        for(auto x:s){
+            mp[x]++;
         }
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
-        if(s==t){
-            ans = true;
+        //Char appears in t, decrease count
+        for(auto x:t){
+            mp[x]--;
         }
-        return ans;
+        //Char with non-zero freq
+        for(auto x:count){
+            if(x.second!=0){
+                return false;
+            }
+        }
+        return true; 
     }
 };
 int main()
