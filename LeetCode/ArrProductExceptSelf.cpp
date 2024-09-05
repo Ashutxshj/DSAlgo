@@ -14,7 +14,7 @@ public:
         {
             if (nums[i] != 0)
             {
-                totalProduct *= nums[i];
+                totalProduct *= nums[i]; //? Product of elements in Array
             }
             else
             {
