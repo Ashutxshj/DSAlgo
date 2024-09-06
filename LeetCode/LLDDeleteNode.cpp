@@ -1,7 +1,6 @@
 class Solution {
   public:
     Node* deleteNode(Node* head, int x) {
-        // Your code here
         if(head==NULL || x<=0)
             return head;
         int pos =1;
