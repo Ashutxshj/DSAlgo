@@ -37,6 +37,7 @@ public:
         while(temp && temp->next){
             int lol = gcd(temp->val,temp->next->val);
             ListNode* temp2=new ListNode(lol);
+            //? Add in between two nodes
             temp2->next=temp->next;
             temp->next=temp2;
             temp=temp2->next;

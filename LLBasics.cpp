@@ -39,6 +39,11 @@ void printList(Node *head)
     cout << "NULL" << endl;
 }
 
+//?          Add in between two nodes
+//*           temp2->next=temp->next;
+//*           temp->next=temp2;
+//*           temp=temp2->next;
+
 // Function to insert at the beginning
 void insertAtHead(Node *&head, int value)
 {
