@@ -1,6 +1,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+//* Brute Force = Hashmap
+
+
+
+//! XOR => a^a=0;
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
