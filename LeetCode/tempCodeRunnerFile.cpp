@@ -1,1 +1,7 @@
-{5,5,5,10,20}
+for (int i = 0; i < word.length(); i++)
+        // {
+        //     if (allowed.find(word))
+        //     {
+        //         return true;
+        //     }
+        // }
