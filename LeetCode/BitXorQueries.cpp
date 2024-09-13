@@ -3,18 +3,25 @@
 using namespace std;
 class Solution {
 public:
-    vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
-        vector<int> ans;
-        for(int i=0;i<queries.size();i++){
-            int res=0;
-            for(int j=queries[i][0];j<=queries[i][1];j++){ 
-                res^=arr[j];
+    class Solution {
+public:
+    vector<int> xorQueries(vector<int>& A, vector<vector<int>>& queries) {
+        vector<int> res;
+        for (int i = 1; i < A.size(); ++i)
+            A[i] ^= A[i - 1];
+        
+        for (auto &q : queries) {
+            if (q[0] > 0) {
+                res.push_back(A[q[0] - 1] ^ A[q[1]]);
+            } else {
+                res.push_back(A[q[1]]);
             }
-            ans.push_back(res);
         }
-        return ans;
+        
+        return res;
     }
 };
+
 int main(){
     Solution s=Solution();
     vector<int> vec={1,3,4,8};
