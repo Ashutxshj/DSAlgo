@@ -15,7 +15,6 @@ int fibonacciTopDown(int n, vector<int>& memo) {
     memo[n] = fibonacciTopDown(n - 1, memo) + fibonacciTopDown(n - 2, memo);
     return memo[n];
 }
-
 // Bottom-Up Fibonacci
 int fibonacciBottomUp(int n) {
     if (n <= 1) return n;
