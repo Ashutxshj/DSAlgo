@@ -15,26 +15,18 @@ class Solution
 public:
     ListNode *reverseList(ListNode *head)
     {
-        vector<int> ll;
         if (head == nullptr || head->next == nullptr)
         {
             return head;
         }
-        ListNode *temp = head;
-        while (temp)
-        {
-            ll.push_back(temp->val);
-            temp = temp->next;
+        ListNode *nextNode,*prevNode=NULL;
+        while(head){
+            nextNode=head->next;
+            head->next=prevNode;
+            prevNode=head;
+            head=nextNode;
         }
-        temp=head;
-        reverse(ll.begin(), ll.end());
-        int i=0;
-        while((temp) && i<ll.size()){
-            temp->val=ll[i];
-            i++;
-            temp=temp->next;
-        }
-        return head;
+        return prevNode;
     }
 };
 int main()
