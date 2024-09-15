@@ -12,7 +12,7 @@ struct ListNode
 };
 class Solution
 {
-public:
+public: 
     ListNode *reverseList(ListNode *head)
     {
         if (head == nullptr || head->next == nullptr)
