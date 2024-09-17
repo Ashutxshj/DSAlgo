@@ -18,23 +18,37 @@ public:
         {
             return head;
         }
-        ListNode *temp = head;
-        vector<ListNode*> arr;
-        while (temp->next)
+        // Find middle part
+        ListNode *slow = head;
+        ListNode *fast = head->next;
+        while (fast && fast->next)
         {
-            arr.push_back(temp);
-            temp = temp->next;
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        //? Two Pointers
-        int i=0,j=arr.size()-1;
-        while(i<j){
-            arr[i]->next=arr[j];
-            i++;
-            if(i<j){
-                arr[j]->next=arr[i];
-            }
-            j--;
+
+        // Reverse
+        ListNode *second = slow->next;
+        ListNode *prev = slow->next = nullptr;
+        while (second)
+        {
+            ListNode *temp = second->next;
+            second->next = prev;
+            prev = second;
+            second = temp;
         }
-        arr[i]->next=nullptr;
+
+        // merge two halfs
+        ListNode *first = head;
+        second = prev;
+        while (second)
+        {
+            ListNode *temp1 = first->next;
+            ListNode *temp2 = second->next;
+            first->next=second;
+            second->next=temp1;
+            first=temp1;
+            second=temp2;            
+        }
     }
 };
