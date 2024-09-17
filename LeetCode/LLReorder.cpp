@@ -19,22 +19,22 @@ public:
             return head;
         }
         ListNode *temp = head;
-        vector<ListNode> arr;
+        vector<ListNode*> arr;
         while (temp->next)
         {
             arr.push_back(temp);
             temp = temp->next;
         }
-        temp = arr[0];
-        temp->next = arr[arr.size() - 1];
-        temp = temp->next;
-        int i = 1;
-        while (temp)
-        {
-            temp = arr[i];
-            temp = temp->next;
+        //? Two Pointers
+        int i=0,j=arr.size()-1;
+        while(i<j){
+            arr[i]->next=arr[j];
             i++;
+            if(i<j){
+                arr[j]->next=arr[i];
+            }
+            j--;
         }
-        return head;
+        arr[i]->next=nullptr;
     }
 };
