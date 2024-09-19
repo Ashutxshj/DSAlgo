@@ -27,7 +27,6 @@ int maxSumSubarray(const vector<int>& nums, int k) {
 
     return maxSum;
 }
-
 int main() {
     vector<int> nums = {2, 1, 5, 1, 3, 2};
     int k = 3;
