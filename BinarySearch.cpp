@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+//! Used to find min rate of anything
 using namespace std;
 int binarySearchIterative(vector<int>& arr, int target) {
     int left = 0, right = arr.size() - 1;
