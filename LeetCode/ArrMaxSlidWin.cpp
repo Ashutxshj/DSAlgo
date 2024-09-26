@@ -24,7 +24,7 @@ public:
         int r = k - 1;
         while (r < nums.size())
         {
-            arr.push_back(maxElem(slicing(nums, l, r)));
+            arr.push_back(maxElem(vector<int>(nums.begin() + l, nums.begin() + r + 1)));
             l++;
             r++;
         }

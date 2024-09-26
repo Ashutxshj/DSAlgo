@@ -74,4 +74,11 @@ int main()
     cout << "\nAfter clearing, map size: " << umap.size() << endl; // Output: 0
 
     return 0;
+    unordered_map<char, int> mp;
+
+    // Count Frequency for each char of a string
+    for (int i = 0; i < s.length(); i++)
+    {
+        mp[s[i]]++;
+    }
 }
