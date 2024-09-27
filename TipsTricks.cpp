@@ -60,6 +60,12 @@ for (auto i : mp)
     pog.push_back(i.first);
     pog.push_back(i.second);
 }
+//! Alphabet Frequency
+int freq[26] = {0};
+for (int i = 0; i < str1.length(); i++)
+{
+    freq[str1[i] - 'A']++;
+}
 //! For Binary Search
 //* to find the index, then always use while (left < right)
 //* to return the index during the search, use while (left <= right)
