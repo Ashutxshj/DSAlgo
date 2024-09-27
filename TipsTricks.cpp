@@ -60,6 +60,20 @@ for (auto i : mp)
     pog.push_back(i.first);
     pog.push_back(i.second);
 }
+//! Find Element in Hashmap
+if (mp.find(key) != mp.end())
+{
+    return true;
+}
+return false;
+//! Element with frequency greater than n
+for (auto &pair : mp)
+{
+    if (pair.second > n)
+    {
+        return true; // Found a duplicate
+    }
+}
 //! Alphabet Frequency
 int freq[26] = {0};
 for (int i = 0; i < str1.length(); i++)

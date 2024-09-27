@@ -60,11 +60,11 @@ public:
         for (auto& s : strs) {
             vector<int> count(26, 0);
             for (char c : s) {
-                count[c - 'a']++;
+                count[c - 'a']++; //?Frequency of each letter
             }
             string key;
             for (int i : count) {
-                key += "#" + to_string(i);
+                key += "#" + to_string(i); //?HashCode for the letter
             }
             ans[key].push_back(s);
         }
