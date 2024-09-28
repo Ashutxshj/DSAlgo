@@ -16,6 +16,7 @@ public:
         return ans;
     }
 };
+// The reason for using an unordered map is for efficient lookups, which are average O(1) in time complexity.
 class Solution{
     public:
     vector<int> twoSum(vector<int>& nums,int target){
