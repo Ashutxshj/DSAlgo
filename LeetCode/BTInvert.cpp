@@ -9,17 +9,15 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution
-{
+class Solution {
 public:
-    TreeNode *invertTree(TreeNode *root)
-    {
-        if (root)
-        {
-            invertTree(root->left);
-            invertTree(root->right);
-            std::swap(root->left, root->right);
+    TreeNode* invertTree(TreeNode* root) {
+        if(root==nullptr){
+            return nullptr;
         }
-        return root;
+        TreeNode* node=new TreeNode(root->val);
+        node->right=invertTree(root->left);
+        node->left=invertTree(root->right);
+        return node;
     }
 };
