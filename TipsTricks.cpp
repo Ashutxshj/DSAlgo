@@ -125,3 +125,5 @@ for (int i = 0; i < nums.size(); i++)
         result.push_back(-1);
     }
 }
+//! To ensure non-negative remainder
+int rem = ((arr[i] % k) + k) % k;
