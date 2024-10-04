@@ -1,30 +1,32 @@
+//?Even/Odd
 #include <iostream>
 #include <vector>
 using namespace std;
-
 int main()
 {
-    long long x;
-    cin >> x;
-    vector<long long> ans;
-    if (x == 2 || x == 3)
+    int n;
+    cin >> n;
+    if (n == 3 || n == 2)
     {
         cout << "NO SOLUTION";
     }
     else
     {
-        // First, append even numbers
-        for (long long i = 2; i <= x; i += 2)
+        vector<int> ans;
+        for (int i = 1; i < n + 1; i++)
         {
-            ans.push_back(i);
+            if (i % 2 == 0)
+            {
+                ans.push_back(i);
+            }
         }
-        // Then append odd numbers
-        for (long long i = 1; i <= x; i += 2)
+        for (int i = 1; i < n + 1; i++)
         {
-            ans.push_back(i);
+            if (i % 2 != 0)
+            {
+                ans.push_back(i);
+            }
         }
-
-        // Print the result
         for (int i = 0; i < ans.size(); i++)
         {
             cout << ans[i] << " ";
