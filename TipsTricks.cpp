@@ -127,3 +127,21 @@ for (int i = 0; i < nums.size(); i++)
 }
 //! To ensure non-negative remainder
 int rem = ((arr[i] % k) + k) % k;
+//! Smallest SubArray with Sum K
+typedef long long ll;
+ll currSum = 0;
+ll result = INT_MAX;
+
+for (int i = 0; i < nums.size(); i++)
+{
+    currSum += nums[i];
+
+    if (currSum == rem)
+    {
+        ll currLen = i;
+        result = min(result, currLen);
+    }
+}
+return result;
+//! Crazy Ass Coding
+return res < n ? res : -1; ==> return res if res <n else -1
