@@ -142,6 +142,12 @@ for (int i = 0; i < nums.size(); i++)
         result = min(result, currLen);
     }
 }
+//! Maximum SubArray Sum
+int best = 0, sum = 0;
+for (int k = 0; k < n; k++) {
+sum = max(array[k],sum+array[k]);
+best = max(best,sum);
+}
 return result;
 //! Crazy Ass Coding
 return res < n ? res : -1; ==> return res if res <n else -1
