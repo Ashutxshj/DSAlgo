@@ -3,37 +3,36 @@
 #include <unordered_map>
 #include <climits>
 using namespace std;
-class Solution
-{
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
 public:
-    int minSubarray(vector<int> &nums, int p)
-    {
-        int sum = 0;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            sum += nums[i];
+    int minSubarray(vector<int>& nums, int p) {
+        int n = nums.size();
+        int res = n;
+        int need = 0, cur = 0;
+
+        for (auto num : nums) {
+            need = (need + num) % p;
         }
-        //? 1.Sum of Whole Array
-        //? 2.Sum%p=lol
-        //? 3.Find smallest subarray with sum==lol
-        int rem = sum % p;
 
-        int result = INT_MAX;
-        int currSum = 0;
-        int start = 0;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            currSum += nums[i];
+        if (need == 0) return 0;
+        unordered_map<int, int> last = {{0, -1}};
 
-            while (currSum >= rem)
-            {
-                result = min(result, i - start + 1);
-                currSum -= nums[start];
-                start++;
+        for (int i = 0; i < n; ++i) {
+            cur = (cur + nums[i]) % p;
+            last[cur] = i;
+            int want = (cur - need + p) % p;
+
+            if (last.count(want)) {
+                res = min(res, i - last[want]);
             }
         }
-        // If minLength is still INT_MAX, that means no valid subarray was found
-        return result == INT_MAX ? -1 : result;
+
+        return res < n ? res : -1;  // Return -1 if no valid subarray found
     }
 };
 int main()
