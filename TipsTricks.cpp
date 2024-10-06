@@ -81,6 +81,26 @@ for (int i = 0; i < str1.length(); i++)
     freq[str1[i] - 'A']++;
 }
 //! For Binary Search
+int left = 0, right = arr.size() - 1;
+
+while (left <= right)
+{
+    int mid = left + (right - left) / 2; // Prevents overflow
+
+    if (arr[mid] == target)
+    {
+        return mid;
+    }
+    else if (arr[mid] < target)
+    {
+        left = mid + 1;
+    }
+    else
+    {
+        right = mid - 1;
+    }
+}
+return -1;
 //* to find the index, then always use while (left < right)
 //* to return the index during the search, use while (left <= right)
 //! Different Number
@@ -144,10 +164,16 @@ for (int i = 0; i < nums.size(); i++)
 }
 //! Maximum SubArray Sum
 int best = 0, sum = 0;
-for (int k = 0; k < n; k++) {
-sum = max(array[k],sum+array[k]);
-best = max(best,sum);
+for (int k = 0; k < n; k++)
+{
+    sum = max(array[k], sum + array[k]);
+    best = max(best, sum);
 }
 return result;
 //! Crazy Ass Coding
-return res < n ? res : -1; ==> return res if res <n else -1
+return res < n ? res : -1;
+== > return res if res < n else - 1
+//! Making a sorted array
+                             vector<int>
+                                 arr = nums;
+sort(arr.begin(), arr.end());
