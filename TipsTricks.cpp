@@ -174,6 +174,6 @@ return result;
 return res < n ? res : -1;
 == > return res if res < n else - 1
 //! Making a sorted array
-                             vector<int>
-                                 arr = nums;
+ vector<int>
+ arr = nums;
 sort(arr.begin(), arr.end());
