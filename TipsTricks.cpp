@@ -170,10 +170,12 @@ for (int k = 0; k < n; k++)
     best = max(best, sum);
 }
 return result;
-//! Crazy Ass Coding
+//! Ternary Operation
 return res < n ? res : -1;
-== > return res if res < n else - 1
+== > return res if res < n else - 1;
+//* condition ? expression_if_true : expression_if_false;
 //! Making a sorted array
- vector<int>
- arr = nums;
+vector<int> vec;
+arr = nums;
 sort(arr.begin(), arr.end());
+//! Always use Stack for Parenthesis
