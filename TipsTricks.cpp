@@ -179,3 +179,7 @@ vector<int> vec;
 arr = nums;
 sort(arr.begin(), arr.end());
 //! Always use Stack for Parenthesis
+
+//! Min of three elements
+int a = 5, b = 10, c = 3;
+cout<<min({a, b, c});
