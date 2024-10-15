@@ -19,5 +19,14 @@ public:
         // code here
         int count = 0;
         DelMiddle(s, count, sizeOfStack);
+        if(k==1){
+            s.top();
+            return;
+        }
+        int temp=s.top();
+        s.pop();
+        deleteMid(s,sizeOfStack-1);
+
+        s.push(temp);
     }
 };
