@@ -182,15 +182,16 @@ sort(arr.begin(), arr.end());
 
 //! Min of three elements
 int a = 5, b = 10, c = 3;
-cout<<min({a, b, c});
+cout << min({a, b, c});
 //! Char to Int
-char ch='9';
-int num=ch-'0';
+char ch = '9';
+int num = ch - '0';
 return num;
 //! Instead of Auto
 template <typename T>
-void traverse_stack(stack<T> & st) {
-    if(st.empty())
+void traverse_stack(stack<T> &st)
+{
+    if (st.empty())
         return;
     T x = st.top();
     cout << x << " ";
@@ -198,3 +199,5 @@ void traverse_stack(stack<T> & st) {
     traverse_stack(st);
     st.push(x);
 }
+//! Shift Operator
+int k = (1 << n) - 1; // equivalent to 2^n - 1
