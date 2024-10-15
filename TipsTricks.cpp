@@ -187,3 +187,14 @@ cout<<min({a, b, c});
 char ch='9';
 int num=ch-'0';
 return num;
+//! Instead of Auto
+template <typename T>
+void traverse_stack(stack<T> & st) {
+    if(st.empty())
+        return;
+    T x = st.top();
+    cout << x << " ";
+    st.pop();
+    traverse_stack(st);
+    st.push(x);
+}
