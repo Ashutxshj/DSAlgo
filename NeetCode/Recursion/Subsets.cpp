@@ -43,7 +43,6 @@ public:
 //* Easier Approach
 class Solution {
 public:
-    
 void backtrack(vector<vector<int>>& result, vector<int>& tempList, vector<int>& nums, int start) {
     result.push_back(tempList);
     for (int i = start; i < nums.size(); i++) {
@@ -52,7 +51,6 @@ void backtrack(vector<vector<int>>& result, vector<int>& tempList, vector<int>& 
         tempList.pop_back();
     }
 }
-
 vector<vector<int>> subsets(vector<int>& nums) {
     vector<vector<int>> result;
     vector<int> tempList;

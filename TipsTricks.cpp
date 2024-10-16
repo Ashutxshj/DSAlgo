@@ -203,3 +203,5 @@ void traverse_stack(stack<T> &st)
 int k = (1 << n) - 1; // equivalent to 2^n - 1
 //! Count the occurrences of the target value in the vector
 int cnt = count(vec.begin(), vec.end(), target);
+//! Remove the first character from the input string (not the last)
+string.erase(0, 1);
