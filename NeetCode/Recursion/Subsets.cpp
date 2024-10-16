@@ -1,33 +1,39 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+                         solve([1, 2], [])
+                         /                \
+               solve([2], [1])         solve([2], [])
+               /        \                 /       \
+       solve([], [1, 2]) solve([], [1]) solve([], [2]) solve([], [])
+          |                  |               |               |
+        [1, 2]             [1]             [2]              []
 class Solution
 {
 public:
-    typedef std::vector<int> v;
+    typedef vector<int> v;
     vector<v> res;
-    vector<v> subsets(v nums)
-    {
+    vector<v> subsets(v nums){
         v op;
-        solve(nums, op);
+        solve(nums,op);
         return res;
     }
-    void solve(v ip, v op)
-    {
-        if (ip.empty())
-        {
+    void solve(v ip,v op){
+        if(ip.empty()){
             res.push_back(op);
-            return;
+            return ;
         }
-        v op1 = op;
-        v op2 = op;
+        v op1=op;
+        v op2=op;
 
         op1.push_back(ip[0]);
-        ip.erase(ip.begin() + 0);
+        ip.erase(ip.begin()+0);
 
-        solve(ip, op1);
-        solve(ip, op2);
+        solve(ip,op1);
+        solve(ip,op2);
 
-        return;
+        return ;
     }
 };
+
