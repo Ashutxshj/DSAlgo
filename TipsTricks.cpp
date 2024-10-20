@@ -205,3 +205,8 @@ int k = (1 << n) - 1; // equivalent to 2^n - 1
 int cnt = count(vec.begin(), vec.end(), target);
 //! Remove the first character from the input string (not the last)
 string.erase(0, 1);
+//! Input array when size not given
+int num;
+while(cin>>arr){
+    arr.push_back(num);
+}
