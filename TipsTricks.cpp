@@ -210,3 +210,4 @@ int num;
 while(cin>>arr){
     arr.push_back(num);
 }
+std::string::npos:-constant that holds the max value of size_t;basically -1;
