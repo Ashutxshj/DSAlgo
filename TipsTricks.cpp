@@ -211,3 +211,6 @@ while(cin>>arr){
     arr.push_back(num);
 }
 std::string::npos:-constant that holds the max value of size_t;basically -1;
+//! Check for input errors
+if (cin.fail()) 
+        cout << "Give integer input." << "\n";
