@@ -214,3 +214,5 @@ std::string::npos:-constant that holds the max value of size_t;basically -1;
 //! Check for input errors
 if (cin.fail()) 
         cout << "Give integer input." << "\n";
+//! Consecutive or Sorted
+take arr[i]-arr[i-1]=1
