@@ -116,7 +116,7 @@ int singleNumber(vector<int> &nums)
 //! Rotate Array
 void rotate(vector<int> &arr)
 {
-    // code here
+
     int temp = arr[arr.size() - 1];
     int temp2 = 0;
     for (int i = 0; i < arr.size(); i++)
@@ -207,12 +207,31 @@ int cnt = count(vec.begin(), vec.end(), target);
 string.erase(0, 1);
 //! Input array when size not given
 int num;
-while(cin>>arr){
+while (cin >> arr)
+{
     arr.push_back(num);
 }
-std::string::npos:-constant that holds the max value of size_t;basically -1;
+std::string::npos : -constant that holds the max value of size_t;
+basically - 1;
 //! Check for input errors
-if (cin.fail()) 
-        cout << "Give integer input." << "\n";
+if (cin.fail())
+    cout << "Give integer input." << "\n";
 //! Consecutive or Sorted
-take arr[i]-arr[i-1]=1
+take arr[i] - arr[i - 1] = 1;
+//! Circular Array
+for (int i = ind; i < n + ind; i++)
+    cout << a[(i % n)] << " ";
+//! Accumulate
+vector<int> vec = {5, 10, 15};
+
+// Defining range as whole array
+auto first = vec.begin();
+auto last = vec.end();
+
+// Use accumulate to find the sum of elements in the vector
+int sum = accumulate(first, last, 0);
+
+
+std::accumulate(first, last, init, op);
+
+

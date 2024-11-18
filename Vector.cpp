@@ -20,6 +20,7 @@ int main()
     cout << boolalpha << is_in(vec, x) << endl; // boolalpha makes 1 to true,0 to false
 
     vector<int> vic = {10, 20, 30, 40, 50};
+    vector<int>lol(vic.size(),0);
 
     // Example visualization of the vector:
     /*
