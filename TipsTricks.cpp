@@ -231,7 +231,21 @@ auto last = vec.end();
 // Use accumulate to find the sum of elements in the vector
 int sum = accumulate(first, last, 0);
 
-
 std::accumulate(first, last, init, op);
+//! Prefix Sum Array
+void fillPrefixSum(int arr[], int n, int prefixSum[])
+{
+    prefixSum[0] = arr[0];
+    // Adding present element with previous element
+    for (int i = 1; i < n; i++)
+        prefixSum[i] = prefixSum[i - 1] + arr[i];
+}
+//! Suffix Sum Array
+suffixSum[n - 1] = arr[n - 1];
 
+// Traverse the array from n-2 to 0
+for (int i = n - 2; i >= 0; i--)
 
+    // Adding current element
+    // with previous element from back
+    suffixSum[i] = suffixSum[i + 1] + arr[i];
