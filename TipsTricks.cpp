@@ -249,3 +249,5 @@ for (int i = n - 2; i >= 0; i--)
     // Adding current element
     // with previous element from back
     suffixSum[i] = suffixSum[i + 1] + arr[i];
+//! Reverse sort
+sort(ans.rbegin,ans.rend());
