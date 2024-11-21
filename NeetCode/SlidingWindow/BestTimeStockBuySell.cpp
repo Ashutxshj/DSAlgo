@@ -31,3 +31,19 @@ public:
         return MP;
     }
 };
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int i=0,j=1;
+        int ans=0;
+        while(j<prices.size()){
+            int profit=prices[j]-prices[i];
+            if(profit<0)
+                i=j;
+            else
+                j++;
+            ans=max(profit,ans);
+        }
+        return ans;
+    }
+};
