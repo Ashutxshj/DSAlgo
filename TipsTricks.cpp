@@ -251,3 +251,6 @@ for (int i = n - 2; i >= 0; i--)
     suffixSum[i] = suffixSum[i + 1] + arr[i];
 //! Reverse sort
 sort(ans.rbegin,ans.rend());
+//! Declaring 2D array
+vector<vector<int>> arr(m, vector<int>(n, 0));  // Initialize with 0
+
