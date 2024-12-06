@@ -250,7 +250,8 @@ for (int i = n - 2; i >= 0; i--)
     // with previous element from back
     suffixSum[i] = suffixSum[i + 1] + arr[i];
 //! Reverse sort
-sort(ans.rbegin,ans.rend());
+sort(ans.rbegin, ans.rend());
 //! Declaring 2D array
-vector<vector<int>> arr(m, vector<int>(n, 0));  // Initialize with 0
-
+vector<vector<int>> arr(m, vector<int>(n, 0)); // Initialize with 0
+//! Convert Bool into integers
+cout << boolalpha << is_in(vec, x) << endl; // boolalpha makes 1 to true,0 to false
