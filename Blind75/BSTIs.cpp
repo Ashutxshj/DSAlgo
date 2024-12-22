@@ -36,4 +36,3 @@ public:
         return isValidBST(root->left) && isValidBST(root->right);
     }
 };
-
