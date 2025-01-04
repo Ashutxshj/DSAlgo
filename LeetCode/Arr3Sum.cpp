@@ -44,6 +44,24 @@ public:
         return ans;
     }
 };
+
+//Count Triplets
+public:
+    int countTriplets(vector<int> &arr, int t) {
+        // Code Here
+        int ans=0;
+        unordered_map<int,int>mp;
+        for(auto& i:arr) mp[i]++;
+        for(int i=0;i<arr.size();i++){
+            mp[arr[i]]--;
+            for(int j=0;j<i;j++){
+                if(mp.find(t-arr[i]-arr[j])!=mp.end()){
+                    ans+=mp[t-arr[i]-arr[j]];
+                }
+            }
+        }
+        return ans;
+    }
 int main()
 {
     vector<int> num = {-1, 0, 1, 2, -1, -4};
