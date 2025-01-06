@@ -23,6 +23,25 @@ public:
         return ans;
     }
 };
+class Solution {
+public:
+    vector<int> minOperations(string bx) {
+        vector<int>a(bx.length(),0);
+        int b=0,m=0;
+        for(int i=0;i<bx.length();i++){
+            a[i]=b+m;
+            m=m+b;
+            b+=bx[i]-'0';
+        }
+        b=0,m=0;
+        for(int i=bx.length()-1;i>=0;i--){
+            a[i]+=b+m;
+            m=m+b;
+            b+=bx[i]-'0';
+        }
+        return a;
+    }
+};
 int main()
 {
     string lol = "110";
