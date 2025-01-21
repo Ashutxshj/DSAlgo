@@ -55,30 +55,30 @@ void reverseSubarray(std::vector<T> &arr, int start, int end)
 }
 int main()
 {
-    std::vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     // Finding pairs with a given sum
     twoPointerExample(arr);
 
     // Removing duplicates from sorted array
-    std::vector<int> sortedArr = {1, 1, 2, 3, 3, 4, 5, 5};
+    vector<int> sortedArr = {1, 1, 2, 3, 3, 4, 5, 5};
     int newSize = removeDuplicates(sortedArr);
-    std::cout << "Array after removing duplicates: ";
+    cout << "Array after removing duplicates: ";
     for (int i = 0; i < newSize; ++i)
     {
         std::cout << sortedArr[i] << " ";
     }
-    std::cout << "\n";
+    cout << "\n";
 
     // Reversing a subarray
-    std::vector<int> arrToReverse = {1, 2, 3, 4, 5};
+    vector<int> arrToReverse = {1, 2, 3, 4, 5};
     reverseSubarray(arrToReverse, 1, 3);
-    std::cout << "Array after reversing subarray: ";
+    cout << "Array after reversing subarray: ";
     for (int i : arrToReverse)
     {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << "\n";
+    cout << "\n";
 
     return 0;
 }

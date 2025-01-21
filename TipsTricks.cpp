@@ -255,3 +255,9 @@ sort(ans.rbegin, ans.rend());
 vector<vector<int>> arr(m, vector<int>(n, 0)); // Initialize with 0
 //! Convert Bool into integers
 cout << boolalpha << is_in(vec, x) << endl; // boolalpha makes 1 to true,0 to false
+//! Remove Elements
+// Use std::remove to move zeros to the end
+auto newEnd = std::remove(arr.begin(), arr.end(), 0);
+
+// Erase the redundant elements
+arr.erase(newEnd, arr.end());
