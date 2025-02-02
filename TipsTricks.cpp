@@ -259,3 +259,8 @@ cout << boolalpha << is_in(vec, x) << endl; // boolalpha makes 1 to true,0 to fa
 auto newEnd = std::remove(arr.begin(), arr.end(), 0);
 // Erase the redundant elements
 arr.erase(newEnd, arr.end());
+// Is Substring?
+bool isSub(string a, string b)
+{
+    return b.find(a) != string::npos;
+}
