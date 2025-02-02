@@ -242,7 +242,6 @@ void fillPrefixSum(int arr[], int n, int prefixSum[])
 }
 //! Suffix Sum Array
 suffixSum[n - 1] = arr[n - 1];
-
 // Traverse the array from n-2 to 0
 for (int i = n - 2; i >= 0; i--)
 
@@ -258,6 +257,5 @@ cout << boolalpha << is_in(vec, x) << endl; // boolalpha makes 1 to true,0 to fa
 //! Remove Elements
 // Use std::remove to move zeros to the end
 auto newEnd = std::remove(arr.begin(), arr.end(), 0);
-
 // Erase the redundant elements
 arr.erase(newEnd, arr.end());
