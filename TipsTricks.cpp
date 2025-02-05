@@ -264,3 +264,9 @@ bool isSub(string a, string b)
 {
     return b.find(a) != string::npos;
 }
+// Traversing
+while (!pq.empty())
+{
+    cout << pq.top() << ' ';
+    pq.pop();
+}
