@@ -19,7 +19,6 @@ public:
         return solve(capacity, val, wt, n);
     }
 };
-
 // Memoization
 class Solution
 {
