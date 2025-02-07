@@ -95,6 +95,28 @@ public:
         return solve(arr, target, n);
     }
 };
+//* Top Down
+class Solution
+{
+public:
+    bool isSubsetSum(vector<int> &arr, int target)
+    {
+        int n = arr.size();
+        vector<bool> dp(target + 1, false);
+
+        dp[0] = true;
+
+        for (int i = 0; i < arr.size(); i++)
+        {
+            int num = arr[i];
+            for (int j = target; j >= num; j--)
+            {
+                dp[j] = dp[j] || dp[j - num];
+            }
+        }
+        return dp[target];
+    }
+};
 int main()
 {
     Solution sol;
