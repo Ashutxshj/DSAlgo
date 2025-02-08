@@ -121,7 +121,6 @@ int main()
 {
     Solution sol;
     vector<int> arr = {3, 34, 4, 12, 5, 2};
-
     cout << sol.isSubsetSum(arr, 9) << endl;
     cout << sol.isSubsetSum(arr, 30) << endl;
     return 0;
