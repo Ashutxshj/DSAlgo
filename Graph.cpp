@@ -63,25 +63,21 @@ public:
     }
 }
 // Depth First Search
-class Solution
-{
-public:
-    vector<int> dfs(int V, vector<int> adj[])
-    {
-        int vis[n] = {0};
-        int start = 0;
-        vector<int> ls;
-        solve(start, adj, vis, ls);
-        return ls;
-    }
-    void solve(int node, vector<int> adj[], int vis[], vector<int> &ls)
-    {
-        vis[node] = 1;
-        ls.push_back(node);
-        for (auto id : adj[node])
-        {
-            if (!vis[id])
-                solve(it, adj, vis, ls);
-        }
-    }
-}
+class Solution {
+    public:
+      void solve(int node,vector<vector<int>>&adj,vector<int>& vis,vector<int>&ls){
+          vis[node]=1;
+          ls.push_back(node);
+          for(auto id:adj[node]){
+              if(!vis[id])
+                  solve(id,adj,vis,ls);
+          }
+      }
+      vector<int> dfsOfGraph(vector<vector<int>>& adj) {
+          int n=adj.size();
+          vector<int>vis(n,0);
+          vector<int>ls;
+          solve(0,adj,vis,ls);
+          return ls;
+      }
+  };
