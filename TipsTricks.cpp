@@ -221,6 +221,9 @@ take arr[i] - arr[i - 1] = 1;
 //! Circular Array
 for (int i = ind; i < n + ind; i++)
     cout << a[(i % n)] << " ";
+//! Circular Array (Twice)
+for (int i = 2*n-1; i>=0; --i)
+    cout << a[(i % n)] << " ";
 //! Accumulate
 vector<int> vec = {5, 10, 15};
 
